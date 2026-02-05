@@ -1,0 +1,18 @@
+.pylintrc
+# Byte-compiled / optimized / DLL files
+__pycache__/
+dist/
+build/
+facturis.egg-info/
+facturis/__pycache__/
+facturis/core/__pycache__/
+facturis/ui_logic/__pycache__/
+facturis/ui/__pycache__/
+facturis/resources/__pycache__/
+facturis/tests/__pycache__/
+facturis/utils/__pycache__/
+facturis/models/__pycache__/
+test_data/
+.env
+.venv
+venv/

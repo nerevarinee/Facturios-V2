@@ -1,0 +1,9 @@
+Metadata-Version: 2.4
+Name: facture-app
+Version: 0.1.0
+Summary: Qt app for facture management
+Author: Rius
+Requires-Dist: PySide6
+Requires-Dist: Pyside6-Addons
+Requires-Dist: pytesseract
+Requires-Dist: Pillow

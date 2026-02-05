@@ -1,0 +1,4 @@
+PySide6
+Pyside6-Addons
+pytesseract
+Pillow
