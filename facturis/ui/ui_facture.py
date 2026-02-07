@@ -60,14 +60,14 @@ class Ui_Form(object):
 
         self.verticalLayout_7.addItem(self.verticalSpacer_4)
 
-        self.label_4 = QLabel(Form)
-        self.label_4.setObjectName(u"label_4")
+        self.factureTypeLabel = QLabel(Form)
+        self.factureTypeLabel.setObjectName(u"factureTypeLabel")
         font1 = QFont()
         font1.setPointSize(12)
-        self.label_4.setFont(font1)
-        self.label_4.setAlignment(Qt.AlignCenter)
+        self.factureTypeLabel.setFont(font1)
+        self.factureTypeLabel.setAlignment(Qt.AlignCenter)
 
-        self.verticalLayout_7.addWidget(self.label_4)
+        self.verticalLayout_7.addWidget(self.factureTypeLabel)
 
         self.verticalLayout_5 = QVBoxLayout()
         self.verticalLayout_5.setObjectName(u"verticalLayout_5")
@@ -189,7 +189,7 @@ class Ui_Form(object):
         self.go_back_button.setFont(font)
         self.go_back_button.setStyleSheet(u"color:rgb(39, 39, 39); background-color:rgb(255, 155, 3);")
         icon3 = QIcon()
-        icon3.addFile(u":/icons/icons/WHITE-arrow-narrow-left-svgrepo-com.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        icon3.addFile(u":/icons/icons/arrow-narrow-left-svgrepo-com.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
         self.go_back_button.setIcon(icon3)
 
         self.verticalLayout_6.addWidget(self.go_back_button)
@@ -222,8 +222,8 @@ class Ui_Form(object):
     def retranslateUi(self, Form):
         Form.setWindowTitle(QCoreApplication.translate("Form", u"Form", None))
         self.newFactureButton.setText(QCoreApplication.translate("Form", u"+ ajoutee un facture", None))
-        self.label_4.setStyleSheet(QCoreApplication.translate("Form", u"color:white", None))
-        self.label_4.setText(QCoreApplication.translate("Form", u"facture type", None))
+        self.factureTypeLabel.setStyleSheet(QCoreApplication.translate("Form", u"color:white", None))
+        self.factureTypeLabel.setText(QCoreApplication.translate("Form", u"facture type", None))
         self.label.setStyleSheet(QCoreApplication.translate("Form", u"color:white", None))
         self.label.setText(QCoreApplication.translate("Form", u"Numero de Facture:", None))
         self.label_2.setStyleSheet(QCoreApplication.translate("Form", u"color:white", None))

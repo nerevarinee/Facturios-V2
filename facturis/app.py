@@ -63,6 +63,13 @@ class MainApp(QMainWindow):
         self.browse_factures.ui.go_back_button.clicked.connect(
             lambda: self.stack.setCurrentWidget(self.main)
         )
+        self.facture.ui.go_back_button.clicked.connect(
+            lambda: self.stack.setCurrentWidget(self.main)
+        )
+        self.custom_facture_window.ui.go_back_button.clicked.connect(
+            lambda: self.stack.setCurrentWidget(self.main)
+        )
+
 
 
     def go_to_facture(self, msg: str):

@@ -67,7 +67,7 @@
       </spacer>
      </item>
      <item>
-      <widget class="QLabel" name="label_4">
+      <widget class="QLabel" name="factureTypeLabel">
        <property name="font">
         <font>
          <pointsize>12</pointsize>
@@ -301,7 +301,7 @@
          </property>
          <property name="icon">
           <iconset resource="../resources/resources_main.qrc">
-           <normaloff>:/icons/icons/WHITE-arrow-narrow-left-svgrepo-com.svg</normaloff>:/icons/icons/WHITE-arrow-narrow-left-svgrepo-com.svg</iconset>
+           <normaloff>:/icons/icons/arrow-narrow-left-svgrepo-com.svg</normaloff>:/icons/icons/arrow-narrow-left-svgrepo-com.svg</iconset>
          </property>
         </widget>
        </item>

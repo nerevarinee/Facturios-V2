@@ -42,6 +42,7 @@ class BrowseFactures(QWidget):
         self.setWindowTitle("Facturis - Browse Factures")
         self.resize(800, 600)
         self.ui.refresh_button.clicked.connect(self.load_factures)
+        self.ui.search_button.clicked.connect(self.search_factures)
 
         #self.load_factures()
 
@@ -187,4 +188,22 @@ class BrowseFactures(QWidget):
             filtered.append(facture)
 
         self.model = FactureTableModel(filtered)
+        self.ui.tableView.setModel(self.model)
+
+    def search_factures(self):
+        search_term = self.ui.search_bar.text().strip().lower()
+        if not search_term:
+            self.load_factures()
+            return
+
+        if not hasattr(self, 'all_factures') or not self.all_factures:
+            QMessageBox.warning(self, "Error", "No factures loaded. Please load factures first.")
+            return
+
+        filtered = []
+        for facture in self.all_factures:
+            if any(search_term in str(value).lower() for value in facture.values()):
+                filtered.append(facture)
+
+        self.model = FPFactureTableModel(filtered)
         self.ui.tableView.setModel(self.model)

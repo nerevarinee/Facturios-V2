@@ -42,7 +42,7 @@ class Ui_Form(object):
         font.setPointSize(11)
         font.setBold(False)
         self.newFactureButton.setFont(font)
-        self.newFactureButton.setStyleSheet(u"")
+        self.newFactureButton.setStyleSheet(u"color:rgb(39, 39, 39); background-color:rgb(255, 155, 3);")
 
         self.verticalLayout_6.addWidget(self.newFactureButton)
 
@@ -82,12 +82,19 @@ class Ui_Form(object):
 
         self.verticalLayout_3.addItem(self.verticalSpacer_3)
 
+        self.factureTypeLabel = QLabel(Form)
+        self.factureTypeLabel.setObjectName(u"factureTypeLabel")
+        font1 = QFont()
+        font1.setPointSize(12)
+        self.factureTypeLabel.setFont(font1)
+        self.factureTypeLabel.setAlignment(Qt.AlignCenter)
+
+        self.verticalLayout_3.addWidget(self.factureTypeLabel)
+
         self.formLayout = QFormLayout()
         self.formLayout.setObjectName(u"formLayout")
         self.label = QLabel(Form)
         self.label.setObjectName(u"label")
-        font1 = QFont()
-        font1.setPointSize(12)
         self.label.setFont(font1)
         self.label.setStyleSheet(u"color:white")
 
@@ -95,6 +102,7 @@ class Ui_Form(object):
 
         self.numFactureField = QLineEdit(Form)
         self.numFactureField.setObjectName(u"numFactureField")
+        self.numFactureField.setStyleSheet(u"background-color:rgb(255, 255, 255)")
 
         self.formLayout.setWidget(0, QFormLayout.ItemRole.FieldRole, self.numFactureField)
 
@@ -107,6 +115,7 @@ class Ui_Form(object):
 
         self.sommeField = QLineEdit(Form)
         self.sommeField.setObjectName(u"sommeField")
+        self.sommeField.setStyleSheet(u"background-color:rgb(255, 255, 255)")
 
         self.formLayout.setWidget(1, QFormLayout.ItemRole.FieldRole, self.sommeField)
 
@@ -185,7 +194,7 @@ class Ui_Form(object):
         self.go_back_button.setFont(font)
         self.go_back_button.setStyleSheet(u"color:rgb(39, 39, 39); background-color:rgb(255, 155, 3);")
         icon3 = QIcon()
-        icon3.addFile(u":/icons/icons/WHITE-arrow-narrow-left-svgrepo-com.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        icon3.addFile(u":/icons/icons/arrow-narrow-left-svgrepo-com.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
         self.go_back_button.setIcon(icon3)
 
         self.verticalLayout_3.addWidget(self.go_back_button)
@@ -229,6 +238,8 @@ class Ui_Form(object):
         self.newFactureButton.setText(QCoreApplication.translate("Form", u"+ ajoutee un facture", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.Text), QCoreApplication.translate("Form", u"Tab 1", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.Image), QCoreApplication.translate("Form", u"Tab 2", None))
+        self.factureTypeLabel.setStyleSheet(QCoreApplication.translate("Form", u"color:white", None))
+        self.factureTypeLabel.setText(QCoreApplication.translate("Form", u"facture type", None))
         self.label.setText(QCoreApplication.translate("Form", u"Numero de Facture:", None))
         self.label_2.setText(QCoreApplication.translate("Form", u"Somme:", None))
         self.error_msg.setText("")
