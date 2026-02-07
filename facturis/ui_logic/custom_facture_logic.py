@@ -25,6 +25,9 @@ from facturis.utils.fileDialog import open_file_dialog
 from facturis.utils.factureImgHandler import imgHandler
 
 from facturis.core.settings import load_settings
+from facturis.core.settings import save_settings
+
+from facturis.core.settings import load_settings
 
 
 class CustomFactureWindow(QWidget):
@@ -46,6 +49,7 @@ class CustomFactureWindow(QWidget):
         self.ui.waitlistButton.clicked.connect(self.on_waitlist)
         self.annulerButton = self.ui.annulerButton
         self.ui.newFactureButton.clicked.connect(self.new_facture)
+        self.ui.reglages_button.clicked.connect(self.choose_tesseract_bin)
 
         self.ui.fp_text_output.setText("Aucun fichier sélectionné.")
 
@@ -57,7 +61,8 @@ class CustomFactureWindow(QWidget):
             value_input.clear()
         self.dynamic_rows.clear()
         file_path = open_file_dialog(self)
-        text = fileDataReader(file_path)
+        tess_path = self.settings.get("tesseract_bin")
+        text = fileDataReader(file_path, tess_path)
         self.ui.fp_text_output.setPlainText(text)
         imgHandler(file_path, self, self.ui.fp_img_output)
 
@@ -74,7 +79,6 @@ class CustomFactureWindow(QWidget):
 
       self.ui.formLayout.addRow(key_input, value_input)
       self.dynamic_rows.append((key_input, value_input))
-
 
     # -------------------------------------------------
     # Data collection
@@ -106,7 +110,6 @@ class CustomFactureWindow(QWidget):
 
         return data
 
-
     # -------------------------------------------------
     # Button handlers
     # -------------------------------------------------
@@ -123,3 +126,17 @@ class CustomFactureWindow(QWidget):
         register_facture(f"{self.settings['storage_dir']}/FACTURE_PRECISEE_factures.json", data, self, facture_status="en_attente")
         print(data)
 
+    def choose_tesseract_bin(self):
+        bin, _ = QFileDialog.getOpenFileName(
+            self,
+            "Choose where tesseract binary is located"
+        )
+
+        if bin:
+            self.settings["tesseract_bin"] = bin
+            QMessageBox.information(
+                self,
+                "Tesseract Path Set",
+                f"Tesseract binary path set to: {bin}"
+            )
+            save_settings(self.settings)

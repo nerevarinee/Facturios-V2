@@ -69,4 +69,4 @@ class FactureWindow(QWidget):
         self.ui.sommeField.clear()
         self.ui.noteField.clear()
         file_path = open_file_dialog(self)
-        imgHandler(file_path, self, self.ui.graphicsView)
+        imgHandler(file_path, self, self.ui.gr)

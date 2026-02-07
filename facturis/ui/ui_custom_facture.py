@@ -19,13 +19,13 @@ from PySide6.QtWidgets import (QApplication, QFormLayout, QGraphicsView, QHBoxLa
     QLabel, QLineEdit, QPushButton, QSizePolicy,
     QSpacerItem, QTabWidget, QTextBrowser, QVBoxLayout,
     QWidget)
-import resources_main_rc
 
 class Ui_Form(object):
     def setupUi(self, Form):
         if not Form.objectName():
             Form.setObjectName(u"Form")
         Form.resize(750, 500)
+        Form.setStyleSheet(u"background-color:rgb(0, 85, 255)")
         self.horizontalLayout = QHBoxLayout(Form)
         self.horizontalLayout.setObjectName(u"horizontalLayout")
         self.verticalLayout_6 = QVBoxLayout()
@@ -48,6 +48,7 @@ class Ui_Form(object):
 
         self.tabWidget = QTabWidget(Form)
         self.tabWidget.setObjectName(u"tabWidget")
+        self.tabWidget.setStyleSheet(u"background-color:rgb(255, 255, 255)")
         self.Text = QWidget()
         self.Text.setObjectName(u"Text")
         self.verticalLayout = QVBoxLayout(self.Text)
@@ -64,6 +65,7 @@ class Ui_Form(object):
         self.verticalLayout_2.setObjectName(u"verticalLayout_2")
         self.fp_img_output = QGraphicsView(self.Image)
         self.fp_img_output.setObjectName(u"fp_img_output")
+        self.fp_img_output.setStyleSheet(u"background-color:rgb(255, 255, 255)")
 
         self.verticalLayout_2.addWidget(self.fp_img_output)
 
@@ -87,6 +89,7 @@ class Ui_Form(object):
         font1 = QFont()
         font1.setPointSize(12)
         self.label.setFont(font1)
+        self.label.setStyleSheet(u"color:white")
 
         self.formLayout.setWidget(0, QFormLayout.ItemRole.LabelRole, self.label)
 
@@ -98,6 +101,7 @@ class Ui_Form(object):
         self.label_2 = QLabel(Form)
         self.label_2.setObjectName(u"label_2")
         self.label_2.setFont(font1)
+        self.label_2.setStyleSheet(u"color:white")
 
         self.formLayout.setWidget(1, QFormLayout.ItemRole.LabelRole, self.label_2)
 
@@ -119,7 +123,7 @@ class Ui_Form(object):
         sizePolicy.setHeightForWidth(self.add_facture_info.sizePolicy().hasHeightForWidth())
         self.add_facture_info.setSizePolicy(sizePolicy)
         self.add_facture_info.setFont(font)
-        self.add_facture_info.setStyleSheet(u"")
+        self.add_facture_info.setStyleSheet(u"color:rgb(39, 39, 39); background-color:rgb(255, 155, 3);")
 
         self.verticalLayout_3.addWidget(self.add_facture_info)
 
@@ -179,7 +183,7 @@ class Ui_Form(object):
         sizePolicy.setHeightForWidth(self.go_back_button.sizePolicy().hasHeightForWidth())
         self.go_back_button.setSizePolicy(sizePolicy)
         self.go_back_button.setFont(font)
-        self.go_back_button.setStyleSheet(u"")
+        self.go_back_button.setStyleSheet(u"color:rgb(39, 39, 39); background-color:rgb(255, 155, 3);")
         icon3 = QIcon()
         icon3.addFile(u":/icons/icons/WHITE-arrow-narrow-left-svgrepo-com.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
         self.go_back_button.setIcon(icon3)
@@ -190,6 +194,21 @@ class Ui_Form(object):
 
         self.verticalLayout_3.addItem(self.verticalSpacer_2)
 
+        self.horizontalLayout_2 = QHBoxLayout()
+        self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
+        self.horizontalSpacer = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+
+        self.horizontalLayout_2.addItem(self.horizontalSpacer)
+
+        self.reglages_button = QPushButton(Form)
+        self.reglages_button.setObjectName(u"reglages_button")
+        self.reglages_button.setStyleSheet(u"color:rgb(39, 39, 39); background-color:rgb(255, 155, 3);")
+
+        self.horizontalLayout_2.addWidget(self.reglages_button)
+
+
+        self.verticalLayout_3.addLayout(self.horizontalLayout_2)
+
 
         self.horizontalLayout.addLayout(self.verticalLayout_3)
 
@@ -198,7 +217,7 @@ class Ui_Form(object):
 
         self.retranslateUi(Form)
 
-        self.tabWidget.setCurrentIndex(1)
+        self.tabWidget.setCurrentIndex(0)
         self.waitlistButton.setDefault(False)
 
 
@@ -218,5 +237,6 @@ class Ui_Form(object):
         self.waitlistButton.setText(QCoreApplication.translate("Form", u"en attendre", None))
         self.annulerButton.setText(QCoreApplication.translate("Form", u"Annuler", None))
         self.go_back_button.setText("")
+        self.reglages_button.setText(QCoreApplication.translate("Form", u"Reglages", None))
     # retranslateUi
 

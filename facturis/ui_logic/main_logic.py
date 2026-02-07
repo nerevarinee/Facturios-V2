@@ -7,6 +7,7 @@ from PySide6.QtWidgets import (
     QWidget,
     QMainWindow,
     QFileDialog,
+    QMessageBox,
     QHeaderView,
     QTableView,
     QStackedWidget,
@@ -61,5 +62,10 @@ class MainWindow(QWidget):
 
         if folder:
             self.settings["storage_dir"] = folder
+            QMessageBox.information(
+                self,
+                "Storage Directory Set",
+                f"Storage directory set to: {folder}"
+            )
             self.ui.storagePathLineEdit.setText(folder)
             save_settings(self.settings)

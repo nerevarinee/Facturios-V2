@@ -19,13 +19,13 @@ from PySide6.QtWidgets import (QApplication, QDateEdit, QHBoxLayout, QHeaderView
     QLabel, QLineEdit, QPushButton, QRadioButton,
     QSizePolicy, QSpacerItem, QTableView, QVBoxLayout,
     QWidget)
-import resources_main_rc
 
 class Ui_Form(object):
     def setupUi(self, Form):
         if not Form.objectName():
             Form.setObjectName(u"Form")
         Form.resize(750, 500)
+        Form.setStyleSheet(u"background-color:rgb(0, 85, 255)")
         self.horizontalLayout_2 = QHBoxLayout(Form)
         self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
         self.horizontalSpacer_2 = QSpacerItem(18, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
@@ -36,6 +36,7 @@ class Ui_Form(object):
         self.verticalLayout_7.setObjectName(u"verticalLayout_7")
         self.go_back_button = QPushButton(Form)
         self.go_back_button.setObjectName(u"go_back_button")
+        self.go_back_button.setStyleSheet(u"color:rgb(39, 39, 39); background-color:rgb(255, 155, 3);")
         icon = QIcon()
         icon.addFile(u":/icons/icons/arrow-narrow-left-svgrepo-com.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
         self.go_back_button.setIcon(icon)
@@ -51,6 +52,7 @@ class Ui_Form(object):
         font = QFont()
         font.setPointSize(12)
         self.facture_type_label.setFont(font)
+        self.facture_type_label.setStyleSheet(u"color:white")
         self.facture_type_label.setAlignment(Qt.AlignBottom|Qt.AlignHCenter)
 
         self.verticalLayout_7.addWidget(self.facture_type_label)
@@ -67,6 +69,7 @@ class Ui_Form(object):
         font1.setPointSize(12)
         font1.setBold(False)
         self.label_2.setFont(font1)
+        self.label_2.setStyleSheet(u"color:white")
 
         self.verticalLayout_3.addWidget(self.label_2)
 
@@ -75,12 +78,14 @@ class Ui_Form(object):
         self.label = QLabel(Form)
         self.label.setObjectName(u"label")
         self.label.setFont(font)
+        self.label.setStyleSheet(u"color:white")
 
         self.horizontalLayout_3.addWidget(self.label)
 
         self.dateEdit = QDateEdit(Form)
         self.dateEdit.setObjectName(u"dateEdit")
         self.dateEdit.setFont(font)
+        self.dateEdit.setStyleSheet(u"background-color:white")
         self.dateEdit.setDateTime(QDateTime(QDate(2026, 1, 1), QTime(0, 0, 0)))
         self.dateEdit.setMaximumDateTime(QDateTime(QDate(2050, 1, 1), QTime(22, 59, 59)))
         self.dateEdit.setMinimumDateTime(QDateTime(QDate(2025, 12, 31), QTime(23, 0, 0)))
@@ -94,11 +99,13 @@ class Ui_Form(object):
         self.verticalLayout_2.setObjectName(u"verticalLayout_2")
         self.paid_radio_button = QRadioButton(Form)
         self.paid_radio_button.setObjectName(u"paid_radio_button")
+        self.paid_radio_button.setStyleSheet(u"color:white")
 
         self.verticalLayout_2.addWidget(self.paid_radio_button)
 
         self.waitlist_radio_button = QRadioButton(Form)
         self.waitlist_radio_button.setObjectName(u"waitlist_radio_button")
+        self.waitlist_radio_button.setStyleSheet(u"color:white")
 
         self.verticalLayout_2.addWidget(self.waitlist_radio_button)
 
@@ -113,6 +120,7 @@ class Ui_Form(object):
         font2 = QFont()
         font2.setPointSize(11)
         self.affiche_button.setFont(font2)
+        self.affiche_button.setStyleSheet(u"color:rgb(39, 39, 39); background-color:rgb(255, 155, 3);")
 
         self.verticalLayout_4.addWidget(self.affiche_button)
 
@@ -128,17 +136,20 @@ class Ui_Form(object):
         self.label_3 = QLabel(Form)
         self.label_3.setObjectName(u"label_3")
         self.label_3.setFont(font1)
+        self.label_3.setStyleSheet(u"color:white")
 
         self.verticalLayout_5.addWidget(self.label_3)
 
         self.modify_status_input_field = QLineEdit(Form)
         self.modify_status_input_field.setObjectName(u"modify_status_input_field")
+        self.modify_status_input_field.setStyleSheet(u"background-color:white")
 
         self.verticalLayout_5.addWidget(self.modify_status_input_field)
 
         self.set_paid_button = QPushButton(Form)
         self.set_paid_button.setObjectName(u"set_paid_button")
         self.set_paid_button.setFont(font2)
+        self.set_paid_button.setStyleSheet(u"color:rgb(39, 39, 39); background-color:rgb(255, 155, 3);")
 
         self.verticalLayout_5.addWidget(self.set_paid_button)
 
@@ -170,6 +181,7 @@ class Ui_Form(object):
 
         self.search_button = QPushButton(Form)
         self.search_button.setObjectName(u"search_button")
+        self.search_button.setStyleSheet(u"color:rgb(39, 39, 39); background-color:rgb(255, 155, 3);")
         icon1 = QIcon()
         icon1.addFile(u":/icons/icons/search-alt-1-svgrepo-com.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
         self.search_button.setIcon(icon1)
@@ -182,6 +194,7 @@ class Ui_Form(object):
 
         self.refresh_button = QPushButton(Form)
         self.refresh_button.setObjectName(u"refresh_button")
+        self.refresh_button.setStyleSheet(u"color:rgb(39, 39, 39); background-color:rgb(255, 155, 3);")
         icon2 = QIcon()
         icon2.addFile(u":/icons/icons/refresh-cw-svgrepo-com.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
         self.refresh_button.setIcon(icon2)
@@ -193,6 +206,7 @@ class Ui_Form(object):
 
         self.tableView = QTableView(Form)
         self.tableView.setObjectName(u"tableView")
+        self.tableView.setStyleSheet(u"background-color:white")
 
         self.verticalLayout.addWidget(self.tableView)
 

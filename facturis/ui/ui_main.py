@@ -18,13 +18,13 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
 from PySide6.QtWidgets import (QApplication, QFrame, QHBoxLayout, QLabel,
     QLineEdit, QPushButton, QSizePolicy, QSpacerItem,
     QVBoxLayout, QWidget)
-import resources_main_rc
 
 class Ui_Form(object):
     def setupUi(self, Form):
         if not Form.objectName():
             Form.setObjectName(u"Form")
         Form.resize(750, 500)
+        Form.setStyleSheet(u"background-color:rgb(0, 85, 255)")
         self.horizontalLayout_3 = QHBoxLayout(Form)
         self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
         self.horizontalSpacer = QSpacerItem(117, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
@@ -41,6 +41,7 @@ class Ui_Form(object):
         self.horizontalLayout.setObjectName(u"horizontalLayout")
         self.frame_2 = QFrame(Form)
         self.frame_2.setObjectName(u"frame_2")
+        self.frame_2.setStyleSheet(u"background-color:rgb(217, 217, 217)")
         self.frame_2.setFrameShape(QFrame.StyledPanel)
         self.frame_2.setFrameShadow(QFrame.Raised)
         self.verticalLayout_2 = QVBoxLayout(self.frame_2)
@@ -66,7 +67,7 @@ class Ui_Form(object):
         self.sonelgazeButton.setFont(font1)
         self.sonelgazeButton.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         self.sonelgazeButton.setLayoutDirection(Qt.RightToLeft)
-        self.sonelgazeButton.setStyleSheet(u"color:rgb(212, 212, 212); background-color:rgb(255, 155, 3);")
+        self.sonelgazeButton.setStyleSheet(u"color:rgb(39, 39, 39); background-color:rgb(255, 155, 3);")
         icon = QIcon()
         icon.addFile(u":/images/images/Logo_Sonelgaz.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
         self.sonelgazeButton.setIcon(icon)
@@ -78,7 +79,7 @@ class Ui_Form(object):
         self.adeButton.setObjectName(u"adeButton")
         self.adeButton.setFont(font1)
         self.adeButton.setLayoutDirection(Qt.RightToLeft)
-        self.adeButton.setStyleSheet(u"color:rgb(212, 212, 212); background-color:rgb(95, 95, 95);")
+        self.adeButton.setStyleSheet(u"color:rgb(39, 39, 39); background-color:rgb(255, 155, 3);")
         icon1 = QIcon()
         icon1.addFile(u":/images/images/222.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
         self.adeButton.setIcon(icon1)
@@ -90,7 +91,7 @@ class Ui_Form(object):
         self.telecomButton.setObjectName(u"telecomButton")
         self.telecomButton.setFont(font1)
         self.telecomButton.setLayoutDirection(Qt.RightToLeft)
-        self.telecomButton.setStyleSheet(u"color:rgb(50, 50, 50); background-color:rgb(255, 255, 255);")
+        self.telecomButton.setStyleSheet(u"color:rgb(39, 39, 39); background-color:rgb(255, 155, 3);")
         icon2 = QIcon()
         icon2.addFile(u":/images/images/algerie-telecom-logo-png_seeklogo-210074.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
         self.telecomButton.setIcon(icon2)
@@ -101,7 +102,7 @@ class Ui_Form(object):
         self.facturePreciseeButton = QPushButton(self.frame_2)
         self.facturePreciseeButton.setObjectName(u"facturePreciseeButton")
         self.facturePreciseeButton.setFont(font1)
-        self.facturePreciseeButton.setStyleSheet(u"color:rgb(212, 212, 212); background-color:rgb(95, 95, 95);")
+        self.facturePreciseeButton.setStyleSheet(u"color:rgb(39, 39, 39); background-color:rgb(255, 155, 3);")
 
         self.verticalLayout_2.addWidget(self.facturePreciseeButton)
 
@@ -128,7 +129,7 @@ class Ui_Form(object):
         self.data_sonelgazeButton.setFont(font1)
         self.data_sonelgazeButton.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         self.data_sonelgazeButton.setLayoutDirection(Qt.RightToLeft)
-        self.data_sonelgazeButton.setStyleSheet(u"color:rgb(212, 212, 212); background-color:rgb(255, 155, 3);")
+        self.data_sonelgazeButton.setStyleSheet(u"color:rgb(39, 39, 39); background-color:rgb(255, 155, 3);")
         self.data_sonelgazeButton.setIcon(icon)
         self.data_sonelgazeButton.setIconSize(QSize(50, 50))
 
@@ -138,7 +139,7 @@ class Ui_Form(object):
         self.data_adeButton.setObjectName(u"data_adeButton")
         self.data_adeButton.setFont(font1)
         self.data_adeButton.setLayoutDirection(Qt.RightToLeft)
-        self.data_adeButton.setStyleSheet(u"color:rgb(212, 212, 212); background-color:rgb(95, 95, 95);")
+        self.data_adeButton.setStyleSheet(u"color:rgb(39, 39, 39); background-color:rgb(255, 155, 3);")
         self.data_adeButton.setIcon(icon1)
         self.data_adeButton.setIconSize(QSize(50, 50))
 
@@ -148,7 +149,7 @@ class Ui_Form(object):
         self.data_telecomButton.setObjectName(u"data_telecomButton")
         self.data_telecomButton.setFont(font1)
         self.data_telecomButton.setLayoutDirection(Qt.RightToLeft)
-        self.data_telecomButton.setStyleSheet(u"color:rgb(50, 50, 50); background-color:rgb(255, 255, 255);")
+        self.data_telecomButton.setStyleSheet(u"color:rgb(39, 39, 39); background-color:rgb(255, 155, 3);")
         self.data_telecomButton.setIcon(icon2)
         self.data_telecomButton.setIconSize(QSize(48, 48))
 
@@ -157,7 +158,7 @@ class Ui_Form(object):
         self.data_facturePreciseeButton = QPushButton(self.frame)
         self.data_facturePreciseeButton.setObjectName(u"data_facturePreciseeButton")
         self.data_facturePreciseeButton.setFont(font1)
-        self.data_facturePreciseeButton.setStyleSheet(u"color:rgb(212, 212, 212); background-color:rgb(95, 95, 95);")
+        self.data_facturePreciseeButton.setStyleSheet(u"color:rgb(39, 39, 39); background-color:rgb(255, 155, 3);")
 
         self.verticalLayout.addWidget(self.data_facturePreciseeButton)
 
@@ -184,7 +185,7 @@ class Ui_Form(object):
         font2.setPointSize(11)
         font2.setBold(False)
         self.parametres_button.setFont(font2)
-        self.parametres_button.setStyleSheet(u"")
+        self.parametres_button.setStyleSheet(u"color:rgb(39, 39, 39); background-color:rgb(255, 155, 3);")
 
         self.horizontalLayout_2.addWidget(self.parametres_button)
 
@@ -197,6 +198,7 @@ class Ui_Form(object):
 
         self.storagePathLineEdit = QLineEdit(Form)
         self.storagePathLineEdit.setObjectName(u"storagePathLineEdit")
+        self.storagePathLineEdit.setStyleSheet(u"background-color:rgb(255, 255, 255)")
 
         self.verticalLayout_3.addWidget(self.storagePathLineEdit)
 
@@ -231,7 +233,7 @@ class Ui_Form(object):
         self.data_sonelgazeButton.setText(QCoreApplication.translate("Form", u"SONELGAZE ", None))
         self.data_adeButton.setText(QCoreApplication.translate("Form", u"ADE", None))
         self.data_telecomButton.setText(QCoreApplication.translate("Form", u"TELECOM", None))
-        self.data_facturePreciseeButton.setText(QCoreApplication.translate("Form", u"+ Facture Precisee", None))
+        self.data_facturePreciseeButton.setText(QCoreApplication.translate("Form", u" Facture Precisee", None))
         self.parametres_button.setText(QCoreApplication.translate("Form", u"Parametres", None))
     # retranslateUi
 

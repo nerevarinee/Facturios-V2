@@ -1,9 +1,12 @@
 import pytesseract
 from PIL import Image
 
-def fileDataReader(filePath):
+def fileDataReader(filePath, path=None):
     # 1️⃣ Set tesseract path
-    pytesseract.pytesseract.tesseract_cmd = r"facturis\ocr\tesseract.exe"
+    if path:
+        pytesseract.pytesseract.tesseract_cmd = path
+    else:
+        pytesseract.pytesseract.tesseract_cmd = r"facturis\ocr\tesseract.exe"
 
     # 2️⃣ Open the image
     img = Image.open(filePath)
@@ -44,7 +47,7 @@ def fileDataReader(filePath):
         lines.append(" ".join(current_line))
 
     # 7️⃣ Join all lines into final text
-    final_text = "\n".join(lines)
+    final_text = "\n \n".join(lines)
 
     print(final_text)
     return final_text

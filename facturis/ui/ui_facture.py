@@ -18,13 +18,13 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
 from PySide6.QtWidgets import (QApplication, QGraphicsView, QHBoxLayout, QLabel,
     QLineEdit, QPlainTextEdit, QPushButton, QSizePolicy,
     QSpacerItem, QVBoxLayout, QWidget)
-import resources_main_rc
 
 class Ui_Form(object):
     def setupUi(self, Form):
         if not Form.objectName():
             Form.setObjectName(u"Form")
         Form.resize(750, 500)
+        Form.setStyleSheet(u"background-color:rgb(0, 85, 255)")
         self.horizontalLayout_4 = QHBoxLayout(Form)
         self.horizontalLayout_4.setObjectName(u"horizontalLayout_4")
         self.verticalLayout = QVBoxLayout()
@@ -41,12 +41,13 @@ class Ui_Form(object):
         font.setPointSize(11)
         font.setBold(False)
         self.newFactureButton.setFont(font)
-        self.newFactureButton.setStyleSheet(u"")
+        self.newFactureButton.setStyleSheet(u"color:rgb(39, 39, 39); background-color:rgb(255, 155, 3);")
 
         self.verticalLayout.addWidget(self.newFactureButton)
 
         self.graphicsView = QGraphicsView(Form)
         self.graphicsView.setObjectName(u"graphicsView")
+        self.graphicsView.setStyleSheet(u"background-color:rgb(255, 255, 255)")
 
         self.verticalLayout.addWidget(self.graphicsView)
 
@@ -95,11 +96,13 @@ class Ui_Form(object):
         self.verticalLayout_3.setObjectName(u"verticalLayout_3")
         self.numFactureField = QLineEdit(Form)
         self.numFactureField.setObjectName(u"numFactureField")
+        self.numFactureField.setStyleSheet(u"background-color:rgb(255, 255, 255)")
 
         self.verticalLayout_3.addWidget(self.numFactureField)
 
         self.sommeField = QLineEdit(Form)
         self.sommeField.setObjectName(u"sommeField")
+        self.sommeField.setStyleSheet(u"background-color:rgb(255, 255, 255)")
 
         self.verticalLayout_3.addWidget(self.sommeField)
 
@@ -114,11 +117,13 @@ class Ui_Form(object):
         self.label_3 = QLabel(Form)
         self.label_3.setObjectName(u"label_3")
         self.label_3.setFont(font1)
+        self.label_3.setStyleSheet(u"color:white")
 
         self.horizontalLayout_2.addWidget(self.label_3)
 
         self.noteField = QPlainTextEdit(Form)
         self.noteField.setObjectName(u"noteField")
+        self.noteField.setStyleSheet(u"background-color:rgb(255, 255, 255)")
 
         self.horizontalLayout_2.addWidget(self.noteField)
 
@@ -182,7 +187,7 @@ class Ui_Form(object):
         sizePolicy.setHeightForWidth(self.go_back_button.sizePolicy().hasHeightForWidth())
         self.go_back_button.setSizePolicy(sizePolicy)
         self.go_back_button.setFont(font)
-        self.go_back_button.setStyleSheet(u"")
+        self.go_back_button.setStyleSheet(u"color:rgb(39, 39, 39); background-color:rgb(255, 155, 3);")
         icon3 = QIcon()
         icon3.addFile(u":/icons/icons/WHITE-arrow-narrow-left-svgrepo-com.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
         self.go_back_button.setIcon(icon3)
@@ -217,8 +222,11 @@ class Ui_Form(object):
     def retranslateUi(self, Form):
         Form.setWindowTitle(QCoreApplication.translate("Form", u"Form", None))
         self.newFactureButton.setText(QCoreApplication.translate("Form", u"+ ajoutee un facture", None))
+        self.label_4.setStyleSheet(QCoreApplication.translate("Form", u"color:white", None))
         self.label_4.setText(QCoreApplication.translate("Form", u"facture type", None))
+        self.label.setStyleSheet(QCoreApplication.translate("Form", u"color:white", None))
         self.label.setText(QCoreApplication.translate("Form", u"Numero de Facture:", None))
+        self.label_2.setStyleSheet(QCoreApplication.translate("Form", u"color:white", None))
         self.label_2.setText(QCoreApplication.translate("Form", u"Somme:", None))
         self.label_3.setText(QCoreApplication.translate("Form", u"Note", None))
         self.paidButton.setText(QCoreApplication.translate("Form", u"Paiee", None))

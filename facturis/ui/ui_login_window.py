@@ -24,7 +24,7 @@ class Ui_Form(object):
         if not Form.objectName():
             Form.setObjectName(u"Form")
         Form.resize(501, 323)
-        Form.setStyleSheet(u"")
+        Form.setStyleSheet(u"background-color:rgb(0, 85, 255)")
         self.horizontalLayout = QHBoxLayout(Form)
         self.horizontalLayout.setObjectName(u"horizontalLayout")
         self.horizontalSpacer_2 = QSpacerItem(101, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
@@ -46,28 +46,28 @@ class Ui_Form(object):
         font.setPointSize(12)
         font.setBold(False)
         self.label_9.setFont(font)
-        self.label_9.setStyleSheet(u"color:rgb(50, 50, 50);font-size:12pt")
+        self.label_9.setStyleSheet(u"color:white;font-size:12pt")
         self.label_9.setTextFormat(Qt.PlainText)
 
         self.verticalLayout_2.addWidget(self.label_9)
 
         self.user_field = QLineEdit(Form)
         self.user_field.setObjectName(u"user_field")
-        self.user_field.setStyleSheet(u"")
+        self.user_field.setStyleSheet(u"background-color:rgb(255, 255, 255)")
 
         self.verticalLayout_2.addWidget(self.user_field)
 
         self.label_10 = QLabel(Form)
         self.label_10.setObjectName(u"label_10")
         self.label_10.setFont(font)
-        self.label_10.setStyleSheet(u"color:rgb(50, 50, 50);font-size:12pt")
+        self.label_10.setStyleSheet(u"color:white;font-size:12pt")
         self.label_10.setTextFormat(Qt.PlainText)
 
         self.verticalLayout_2.addWidget(self.label_10)
 
         self.password_field = QLineEdit(Form)
         self.password_field.setObjectName(u"password_field")
-        self.password_field.setStyleSheet(u"")
+        self.password_field.setStyleSheet(u"background-color:rgb(255, 255, 255)")
 
         self.verticalLayout_2.addWidget(self.password_field)
 
@@ -78,7 +78,7 @@ class Ui_Form(object):
         font1.setPointSize(11)
         font1.setBold(False)
         self.login_button.setFont(font1)
-        self.login_button.setStyleSheet(u"")
+        self.login_button.setStyleSheet(u"color:rgb(39, 39, 39); background-color:rgb(255, 155, 3);")
 
         self.verticalLayout_2.addWidget(self.login_button)
 

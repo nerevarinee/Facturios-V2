@@ -1,5 +1,4 @@
 from PySide6.QtCore import Qt, QAbstractTableModel
-from PySide6.QtWidgets import QAbstractItemView
 
 class FactureTableModel(QAbstractTableModel):
     headers = ["Date", "Nomero Facture", "Somme", "Note", "Status"]

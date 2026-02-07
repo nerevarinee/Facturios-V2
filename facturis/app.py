@@ -1,5 +1,6 @@
 from ast import main
 import sys
+from turtle import color
 
 from PySide6 import QtWidgets, QtCore
 from PySide6.QtWidgets import (
@@ -29,6 +30,7 @@ from facturis.resources import resources_rc
 class MainApp(QMainWindow):
     def __init__(self):
         super().__init__()
+        self.setStyleSheet(u"background-color:rgb(0, 85, 255)")
 
         self.stack = QStackedWidget(self)
         self.setCentralWidget(self.stack)
@@ -56,6 +58,9 @@ class MainApp(QMainWindow):
             lambda: self.stack.setCurrentWidget(self.main)
         )
         self.custom_facture_window.annulerButton.clicked.connect(
+            lambda: self.stack.setCurrentWidget(self.main)
+        )
+        self.browse_factures.ui.go_back_button.clicked.connect(
             lambda: self.stack.setCurrentWidget(self.main)
         )
 
