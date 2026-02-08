@@ -19,6 +19,7 @@ from PySide6.QtWidgets import (QApplication, QDateEdit, QHBoxLayout, QHeaderView
     QLabel, QLineEdit, QPushButton, QRadioButton,
     QSizePolicy, QSpacerItem, QTableView, QVBoxLayout,
     QWidget)
+import resources_main_rc
 
 class Ui_Form(object):
     def setupUi(self, Form):
@@ -176,6 +177,7 @@ class Ui_Form(object):
         self.horizontalLayout.setObjectName(u"horizontalLayout")
         self.search_bar = QLineEdit(Form)
         self.search_bar.setObjectName(u"search_bar")
+        self.search_bar.setStyleSheet(u"background-color:white")
 
         self.horizontalLayout.addWidget(self.search_bar)
 
@@ -227,10 +229,10 @@ class Ui_Form(object):
         self.facture_type_label.setText(QCoreApplication.translate("Form", u"TYPE DE FACTURE", None))
         self.label_2.setText(QCoreApplication.translate("Form", u"Filtres les factures:", None))
         self.label.setText(QCoreApplication.translate("Form", u"Avant de :", None))
-        self.paid_radio_button.setText(QCoreApplication.translate("Form", u"Paiee", None))
+        self.paid_radio_button.setText(QCoreApplication.translate("Form", u"Paye", None))
         self.waitlist_radio_button.setText(QCoreApplication.translate("Form", u"En attente", None))
         self.affiche_button.setText(QCoreApplication.translate("Form", u"Affiche", None))
-        self.label_3.setText(QCoreApplication.translate("Form", u"Modifie un facture:", None))
+        self.label_3.setText(QCoreApplication.translate("Form", u"Modifier une facture:", None))
         self.modify_status_input_field.setInputMask("")
         self.set_paid_button.setText(QCoreApplication.translate("Form", u"Paiee", None))
         self.search_bar.setInputMask("")

@@ -57,15 +57,15 @@ class MainWindow(QWidget):
     def choose_save_folder(self):
         folder = QFileDialog.getExistingDirectory(
             self,
-            "Choose where files will be saved"
+            "Choisir le dossier de stockage",
         )
 
         if folder:
             self.settings["storage_dir"] = folder
             QMessageBox.information(
                 self,
-                "Storage Directory Set",
-                f"Storage directory set to: {folder}"
+                "Dossier de Stockage Défini",
+                f"Dossier de stockage défini à: {folder}"
             )
             self.ui.storagePathLineEdit.setText(folder)
             save_settings(self.settings)

@@ -14,6 +14,7 @@ from PySide6.QtWidgets import (
 from PySide6.QtCore import Qt, QFile, Signal
 
 from facturis.ui.ui_login_window import Ui_Form
+from facturis.core.settings import load_settings
 
 
 class LoginWindow(QWidget):
@@ -33,10 +34,16 @@ class LoginWindow(QWidget):
         username = self.ui.user_field.text()
         password = self.ui.password_field.text()
 
-        if username == "admin" and password == "password":
+        settings = load_settings()
+        stored_username = settings.get("username", "admin")
+        stored_password = settings.get("password", "password")  
+  
+        if username == stored_username and password == stored_password:  
             self.ui.error_label.setStyleSheet("color: green;")
-            self.ui.error_label.setText("Login successful!")
+            self.ui.error_label.setText("le login a réussi!")
             self.login_success.emit()
         else:
             self.ui.error_label.setStyleSheet("color: red;")
-            self.ui.error_label.setText("Invalid username or password.")
+            self.ui.error_label.setText("Nom d'utilisateur ou mot de passe incorrect.")
+            self.ui.error_label.setStyleSheet("color: red;")
+            self.ui.error_label.setText("Nom d'utilisateur ou mot de passe incorrect.")

@@ -102,7 +102,7 @@ class CustomFactureWindow(QWidget):
                 QMessageBox.warning(
                     self,
                     "Duplicate Field",
-                    f"The field name '{key}' is duplicated. Please use unique field names."
+                    f"Le champ '{key}' est dupliqué. Veuillez utiliser des noms de champs uniques."
                 )
                 return None
 
@@ -129,7 +129,7 @@ class CustomFactureWindow(QWidget):
     def choose_tesseract_bin(self):
         bin, _ = QFileDialog.getOpenFileName(
             self,
-            "Choose where tesseract binary is located"
+            "Choisir le binaire de Tesseract",
         )
 
         if bin:

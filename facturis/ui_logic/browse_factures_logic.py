@@ -89,7 +89,7 @@ class BrowseFactures(QWidget):
             QMessageBox.warning(
                 self,
                 "Storage Directory Not Set",
-                "Please set the storage directory in the main window settings."
+                "Veulliez définir le dossier de stockage dans les paramètres de la fenêtre principale."
             )
             return None
         self.source_path = f"{storage_dir}/{self.ui.facture_type_label.text()}_factures.json"
@@ -108,10 +108,10 @@ class BrowseFactures(QWidget):
             QMessageBox.information(
                 self,
                 "Success",
-                f"Factures loaded successfully from {data_source}.")
+                f"Factures chargées avec succès depuis {data_source}.")
         except Exception as e:
             #print(f"Error loading factures from {data_source}: {e}")
-            QMessageBox.critical(self, "Error", f"Failed to load factures: {e}")
+            QMessageBox.critical(self, "Error", f"Échec du chargement des factures: {e}")
             return []
 
     def set_facture_paid(self):
@@ -197,7 +197,7 @@ class BrowseFactures(QWidget):
             return
 
         if not hasattr(self, 'all_factures') or not self.all_factures:
-            QMessageBox.warning(self, "Error", "No factures loaded. Please load factures first.")
+            QMessageBox.warning(self, "Error", "Aucune facture n'est chargée. Veuillez charger les factures d'abord.")
             return
 
         filtered = []

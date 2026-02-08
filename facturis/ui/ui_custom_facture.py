@@ -19,6 +19,7 @@ from PySide6.QtWidgets import (QApplication, QFormLayout, QGraphicsView, QHBoxLa
     QLabel, QLineEdit, QPushButton, QSizePolicy,
     QSpacerItem, QTabWidget, QTextBrowser, QVBoxLayout,
     QWidget)
+import resources_main_rc
 
 class Ui_Form(object):
     def setupUi(self, Form):
@@ -244,7 +245,7 @@ class Ui_Form(object):
         self.label_2.setText(QCoreApplication.translate("Form", u"Somme:", None))
         self.error_msg.setText("")
         self.add_facture_info.setText(QCoreApplication.translate("Form", u"+ ajoute un field", None))
-        self.paidButton.setText(QCoreApplication.translate("Form", u"Paiee", None))
+        self.paidButton.setText(QCoreApplication.translate("Form", u"Paye", None))
         self.waitlistButton.setText(QCoreApplication.translate("Form", u"en attendre", None))
         self.annulerButton.setText(QCoreApplication.translate("Form", u"Annuler", None))
         self.go_back_button.setText("")
