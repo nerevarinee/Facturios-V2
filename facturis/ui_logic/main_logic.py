@@ -19,6 +19,7 @@ from facturis.core.settings import save_settings
 from facturis.core.paths import SETTINGS_FILE
 
 from facturis.ui.ui_main import Ui_Form
+from facturis.ui.dialogBox import StorageFolderDialog
 
 class MainWindow(QWidget):
     message_signal = Signal(str)
@@ -31,8 +32,8 @@ class MainWindow(QWidget):
 
         self.settings = load_settings()
         storage_dir = self.settings.get("storage_dir")
-        if storage_dir:
-            self.ui.storagePathLineEdit.setText(storage_dir)
+        #if storage_dir:
+            #self.ui.storagePathLineEdit.setText(storage_dir)
 
         self.setWindowTitle("Facturis")
         self.resize(800, 600)
@@ -55,17 +56,14 @@ class MainWindow(QWidget):
         self.data_message_signal.emit(nav_msg)
 
     def choose_save_folder(self):
-        folder = QFileDialog.getExistingDirectory(
+        dialog = StorageFolderDialog(
             self,
-            "Choisir le dossier de stockage",
+            self.settings.get("storage_dir", "")
         )
 
-        if folder:
-            self.settings["storage_dir"] = folder
-            QMessageBox.information(
-                self,
-                "Dossier de Stockage Défini",
-                f"Dossier de stockage défini à: {folder}"
-            )
-            self.ui.storagePathLineEdit.setText(folder)
-            save_settings(self.settings)
+        if dialog.exec():  # user clicked OK
+            folder = dialog.path
+            if folder:
+                self.settings["storage_dir"] = folder
+                save_settings(self.settings)
+                #self.ui.storagePathLineEdit.setText(folder)

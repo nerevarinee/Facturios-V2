@@ -1,3 +1,4 @@
+# cSpell:ignore tesseract Tesseract
 from datetime import date
 
 from PySide6 import QtWidgets, QtCore
@@ -26,9 +27,6 @@ from facturis.utils.factureImgHandler import imgHandler
 
 from facturis.core.settings import load_settings
 from facturis.core.settings import save_settings
-
-from facturis.core.settings import load_settings
-
 
 class CustomFactureWindow(QWidget):
     def __init__(self):
@@ -61,15 +59,45 @@ class CustomFactureWindow(QWidget):
     def new_facture(self):
         self.ui.numFactureField.clear()
         self.ui.sommeField.clear()
+
+        # Remove dynamic widgets from the layout and delete them to avoid
+        # leaving orphaned widgets in the UI / causing memory leaks.
         for key_input, value_input in self.dynamic_rows:
-            key_input.clear()
-            value_input.clear()
+            try:
+                self.ui.formLayout.removeWidget(key_input)
+            except Exception:
+                pass
+            key_input.deleteLater()
+
+            try:
+                self.ui.formLayout.removeWidget(value_input)
+            except Exception:
+                pass
+            value_input.deleteLater()
+
         self.dynamic_rows.clear()
+
         file_path = open_file_dialog(self)
-        tess_path = self.settings.get("tesseract_bin")
-        text = fileDataReader(file_path, tess_path)
+        if not file_path:
+            # User cancelled file selection; keep UI in a sane state.
+            self.ui.fp_text_output.setText("Aucun fichier sélectionné.")
+            return
+
+        try:
+            imgHandler(file_path, self, self.ui.fp_img_output)
+        except Exception as e:
+            QMessageBox.warning(self, "Error", f"Failed to process image: {e}")
+        try:
+            tess_path = self.settings.get("tesseract_bin")
+        except Exception:
+            QMessageBox.warning(self, "Error", "Failed to load Tesseract path from settings. Please set it in the reglages.")
+            tess_path = None
+        try:
+            text = fileDataReader(file_path, tess_path)
+        except Exception as e:
+            QMessageBox.warning(self, "Error", f"Failed to read OCR data: {e}")
+            text = "Failed to extract text from image."
         self.ui.fp_text_output.setPlainText(text)
-        imgHandler(file_path, self, self.ui.fp_img_output)
 
     # -------------------------------------------------
     # Dynamic QFormLayout logic

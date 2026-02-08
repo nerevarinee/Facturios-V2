@@ -235,7 +235,7 @@ class Ui_Form(object):
 
     def retranslateUi(self, Form):
         Form.setWindowTitle(QCoreApplication.translate("Form", u"Form", None))
-        self.newFactureButton.setText(QCoreApplication.translate("Form", u"+ ajoutee un facture", None))
+        self.newFactureButton.setText(QCoreApplication.translate("Form", u"+ ajoutee une facture", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.Text), QCoreApplication.translate("Form", u"Tab 1", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.Image), QCoreApplication.translate("Form", u"Tab 2", None))
         self.factureTypeLabel.setStyleSheet(QCoreApplication.translate("Form", u"color:white", None))
@@ -243,7 +243,7 @@ class Ui_Form(object):
         self.label.setText(QCoreApplication.translate("Form", u"Numero de Facture:", None))
         self.label_2.setText(QCoreApplication.translate("Form", u"Somme:", None))
         self.error_msg.setText("")
-        self.add_facture_info.setText(QCoreApplication.translate("Form", u"+ ajoute un field", None))
+        self.add_facture_info.setText(QCoreApplication.translate("Form", u"+ ajoute un champ", None))
         self.paidButton.setText(QCoreApplication.translate("Form", u"Paye", None))
         self.waitlistButton.setText(QCoreApplication.translate("Form", u"en attendre", None))
         self.annulerButton.setText(QCoreApplication.translate("Form", u"Annuler", None))

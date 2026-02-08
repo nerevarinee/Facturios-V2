@@ -1,6 +1,5 @@
 from ast import main
 import sys
-from turtle import color
 
 from PySide6 import QtWidgets, QtCore
 from PySide6.QtWidgets import (
