@@ -27,7 +27,7 @@ class Ui_Form(object):
         Form.setStyleSheet(u"background-color:rgb(0, 85, 255)")
         self.horizontalLayout = QHBoxLayout(Form)
         self.horizontalLayout.setObjectName(u"horizontalLayout")
-        self.horizontalSpacer_3 = QSpacerItem(101, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+        self.horizontalSpacer_3 = QSpacerItem(78, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
 
         self.horizontalLayout.addItem(self.horizontalSpacer_3)
 
@@ -116,7 +116,7 @@ class Ui_Form(object):
 
         self.horizontalLayout.addLayout(self.verticalLayout)
 
-        self.horizontalSpacer_2 = QSpacerItem(101, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+        self.horizontalSpacer_2 = QSpacerItem(77, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
 
         self.horizontalLayout.addItem(self.horizontalSpacer_2)
 
@@ -135,6 +135,6 @@ class Ui_Form(object):
         self.label_10.setText(QCoreApplication.translate("Form", u"Mot de pass:", None))
         self.label_11.setText(QCoreApplication.translate("Form", u"Confirme le mote de pass", None))
         self.enrigstre_button.setText(QCoreApplication.translate("Form", u"Enregistrer", None))
-        self.label.setText(QCoreApplication.translate("Form", u"Vous Peux .....", None))
+        self.label.setText(QCoreApplication.translate("Form", u"Assurez-vous de noter vos qualifications", None))
     # retranslateUi
 

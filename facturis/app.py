@@ -15,6 +15,7 @@ from PySide6.QtWidgets import (
 )
 from PySide6.QtCore import Qt, QFile
 
+from facturis.ui_logic.category_list_logic import CategoryListWindow
 from facturis.ui_logic.register_logic import RegisterWindow
 from facturis.ui_logic.login_logic import LoginWindow
 from facturis.ui_logic.main_logic import MainWindow
@@ -41,6 +42,7 @@ class MainApp(QMainWindow):
         self.facture = FactureWindow()
         self.custom_facture_window = CustomFactureWindow()
         self.browse_factures = BrowseFactures()
+        self.category_list = CategoryListWindow()
 
         self.stack.addWidget(self.register)
         self.stack.addWidget(self.login)
@@ -48,6 +50,15 @@ class MainApp(QMainWindow):
         self.stack.addWidget(self.facture)
         self.stack.addWidget(self.custom_facture_window)
         self.stack.addWidget(self.browse_factures)
+        self.stack.addWidget(self.category_list)
+
+        # In __init__:
+
+        # Wire up signals
+        self.category_list.category_selected.connect(self.go_to_custom_facture_with_category)
+        self.category_list.ui.go_back_button.clicked.connect(
+            lambda: self.stack.setCurrentWidget(self.main)
+        )
 
         # Wire registration success to show login
         self.register.registration_success.connect(
@@ -79,12 +90,27 @@ class MainApp(QMainWindow):
 
 
 
-    def go_to_facture(self, msg: str):
-        self.facture.receive_message(msg)
+    def go_to_browse_factures(self, msg: str):
         if msg == "FACTURE_PRECISEE":
-            self.stack.setCurrentWidget(self.custom_facture_window)
+            self.stack.setCurrentWidget(self.category_list)
+            # Disconnect previous signal and reconnect for browse
+            try:
+                self.category_list.category_selected.disconnect()  
+            except:
+                pass
+            self.category_list.category_selected.connect(self.go_to_browse_with_category)
         else:
-            self.stack.setCurrentWidget(self.facture)
+            self.browse_factures.receive_message(msg)
+            self.stack.setCurrentWidget(self.browse_factures)
+
+    def go_to_browse_with_category(self, category_name: str):
+        self.browse_factures.receive_message(category_name)
+        self.stack.setCurrentWidget(self.browse_factures)
+
+    def go_to_custom_facture_with_category(self, category_name: str):
+        self.custom_facture_window.receive_message(category_name)
+        self.stack.setCurrentWidget(self.custom_facture_window)
+
     def go_to_browse_factures(self, msg: str):
         self.browse_factures.receive_message(msg)
         self.stack.setCurrentWidget(self.browse_factures)

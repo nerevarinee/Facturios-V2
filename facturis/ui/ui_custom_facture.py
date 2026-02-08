@@ -19,7 +19,6 @@ from PySide6.QtWidgets import (QApplication, QFormLayout, QGraphicsView, QHBoxLa
     QLabel, QLineEdit, QPushButton, QSizePolicy,
     QSpacerItem, QTabWidget, QTextBrowser, QVBoxLayout,
     QWidget)
-import resources_main_rc
 
 class Ui_Form(object):
     def setupUi(self, Form):

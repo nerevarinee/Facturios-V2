@@ -53,6 +53,10 @@ class CustomFactureWindow(QWidget):
 
         self.ui.fp_text_output.setText("Aucun fichier sélectionné.")
 
+    def receive_message(self, category_name: str):
+        self.category_name = category_name
+        self.ui.factureTypeLabel.setText(category_name)
+
     def new_facture(self):
         self.ui.numFactureField.clear()
         self.ui.sommeField.clear()
@@ -116,15 +120,27 @@ class CustomFactureWindow(QWidget):
 
     def on_paid(self):
         data = self.collect_facture_data()
+        if not data:
+            QMessageBox.warning(
+                self,
+                "Input Error",
+                "Please fill in all required fields and ensure there are no duplicate field names."
+            )
         data["status"] = "paid"
-        register_facture(f"{self.settings['storage_dir']}/FACTURE_PRECISEE_factures.json", data, self, facture_status="paid")
-        print(data)
+        save_path = f"{self.settings['storage_dir']}/{self.category_name}_factures.json"
+        register_facture(save_path, data, self, facture_status="paid")
 
     def on_waitlist(self):
         data = self.collect_facture_data()
+        if not data:
+            QMessageBox.warning(
+                self,
+                "Input Error",
+                "Please fill in all required fields and ensure there are no duplicate field names."
+            )
         data["status"] = "en_attente"
-        register_facture(f"{self.settings['storage_dir']}/FACTURE_PRECISEE_factures.json", data, self, facture_status="en_attente")
-        print(data)
+        save_path = f"{self.settings['storage_dir']}/{self.category_name}_factures.json"
+        register_facture(save_path, data, self, facture_status="en_attente")
 
     def choose_tesseract_bin(self):
         bin, _ = QFileDialog.getOpenFileName(
