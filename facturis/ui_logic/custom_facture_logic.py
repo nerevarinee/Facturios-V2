@@ -55,6 +55,7 @@ class CustomFactureWindow(QWidget):
 
     def receive_message(self, category_name: str):
         self.category_name = category_name
+        # Update any UI labels if needed
         self.ui.factureTypeLabel.setText(category_name)
 
     def new_facture(self):
@@ -128,6 +129,11 @@ class CustomFactureWindow(QWidget):
             )
         data["status"] = "paid"
         save_path = f"{self.settings['storage_dir']}/{self.category_name}_factures.json"
+        QMessageBox.information(
+            self,
+            "Data Collected",
+            f"Data saved in {save_path}"
+        )
         register_facture(save_path, data, self, facture_status="paid")
 
     def on_waitlist(self):
@@ -140,6 +146,11 @@ class CustomFactureWindow(QWidget):
             )
         data["status"] = "en_attente"
         save_path = f"{self.settings['storage_dir']}/{self.category_name}_factures.json"
+        QMessageBox.information(
+            self,
+            "Data Collected",
+            f"Data saved in {save_path}"
+        )
         register_facture(save_path, data, self, facture_status="en_attente")
 
     def choose_tesseract_bin(self):

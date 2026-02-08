@@ -81,6 +81,11 @@ class BrowseFactures(QWidget):
 
     def receive_message(self, msg: str):
         self.ui.facture_type_label.setText(msg)
+        QMessageBox.information(
+            self,
+            "Message Received",
+            f"Received message: {msg}"
+        )
         return msg
 
     def get_data_source_path(self):
@@ -100,10 +105,10 @@ class BrowseFactures(QWidget):
         data_source = self.get_data_source_path()
         try:
             self.all_factures = loadDataFromJsonFile(data_source)
-            if self.ui.facture_type_label.text() == "FACTURE_PRECISEE":
-                self.model = FPFactureTableModel(self.all_factures)
-            else:
+            if self.ui.facture_type_label.text() in ["SONELGAZE", "ADE", "TELECOM"]:
                 self.model = FactureTableModel(self.all_factures)
+            else:
+                self.model = FPFactureTableModel(self.all_factures)
             self.ui.tableView.setModel(self.model)
             QMessageBox.information(
                 self,
@@ -187,7 +192,7 @@ class BrowseFactures(QWidget):
 
             filtered.append(facture)
 
-        self.model = FactureTableModel(filtered)
+        self.model = FPFactureTableModel(filtered)
         self.ui.tableView.setModel(self.model)
 
     def search_factures(self):

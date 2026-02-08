@@ -47,6 +47,7 @@ class CategoryListWindow(QWidget):
             btn = QPushButton(category)
             btn.clicked.connect(lambda checked, c=category: self.category_selected.emit(c))
             layout.addWidget(btn)
+            btn.setStyleSheet("color: rgb(39, 39, 39); background-color:rgb(255, 155, 3)") # Set button text color to blue
 
     def add_category(self):
         text, ok = QInputDialog.getText(self, "New Category", "Enter category name:")

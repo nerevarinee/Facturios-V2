@@ -11,10 +11,12 @@ from PySide6.QtWidgets import (
     QHeaderView,
     QTableView,
     QStackedWidget,
-    QGraphicsScene
+    QGraphicsScene,
 )
 from PySide6.QtCore import Qt, QFile
+from PySide6.QtGui import QIcon
 
+from facturis.core.settings import load_settings
 from facturis.ui_logic.category_list_logic import CategoryListWindow
 from facturis.ui_logic.register_logic import RegisterWindow
 from facturis.ui_logic.login_logic import LoginWindow
@@ -87,43 +89,71 @@ class MainApp(QMainWindow):
         self.custom_facture_window.ui.go_back_button.clicked.connect(
             lambda: self.stack.setCurrentWidget(self.main)
         )
-
-
-
-    def go_to_facture(self, msg: str):  
-        if msg == "FACTURE_PRECISEE":  
-            self.stack.setCurrentWidget(self.category_list)  
-        else:  
-            self.facture.receive_message(msg)  
-            self.stack.setCurrentWidget(self.facture)  
-
-    def go_to_browse_factures(self, msg: str):  
-        if msg == "FACTURE_PRECISEE":  
-            self.stack.setCurrentWidget(self.category_list)  
-        # Disconnect previous signal and reconnect for browse  
-            try:  
-                self.category_list.category_selected.disconnect()    
-            except:  
-                pass 
-            self.category_list.category_selected.connect(self.go_to_browse_with_category)  
+        if self.user_exists():
+            self.stack.setCurrentWidget(self.login)
         else:
-            self.browse_factures.receive_message(msg)  
-            self.stack.setCurrentWidget(self.browse_factures)  
+            self.stack.setCurrentWidget(self.register)
 
-    def go_to_browse_with_category(self, category_name: str):  
-        self.browse_factures.receive_message(category_name)  
-        self.stack.setCurrentWidget(self.browse_factures)  
-  
-    def go_to_custom_facture_with_category(self, category_name: str):  
-        self.custom_facture_window.receive_message(category_name)  
+    # At the end of __init__, after all signal connections:
+
+# Check if user already exists and show appropriate screen
+
+
+    def user_exists(self):
+    # This depends on how your RegisterWindow stores user data
+    # Common approaches
+    # 1. Check if a user credentials file exists
+    # 2. Check settings for a registered user flag
+    # 3. Query a database
+
+    # Example implementation (adjust based on your actual storage)
+        try:
+            settings = load_settings()
+            return settings.get("account_registered", False)
+        except:
+            return False
+    def go_to_facture(self, msg: str):
+        if msg == "FACTURE_PRECISEE":
+            # Disconnect any previous signal connections
+            try:
+                self.category_list.category_selected.disconnect()
+            except:
+                pass
+        # Reconnect to facture creation handler
+            self.category_list.category_selected.connect(self.go_to_custom_facture_with_category)
+            self.stack.setCurrentWidget(self.category_list)
+        else:
+            self.facture.receive_message(msg)
+            self.stack.setCurrentWidget(self.facture)
+
+    def go_to_browse_factures(self, msg: str):
+        if msg == "FACTURE_PRECISEE":
+            self.stack.setCurrentWidget(self.category_list)
+        # Disconnect previous signal and reconnet for browse
+            try:
+                self.category_list.category_selected.disconnect()
+            except:
+                pass
+            self.category_list.category_selected.connect(self.go_to_browse_with_category)
+        else:
+            self.browse_factures.receive_message(msg)
+            self.stack.setCurrentWidget(self.browse_factures)
+
+    def go_to_browse_with_category(self, category_name: str):
+        self.browse_factures.receive_message(category_name)
+        self.stack.setCurrentWidget(self.browse_factures)
+
+    def go_to_custom_facture_with_category(self, category_name: str):
+        self.custom_facture_window.receive_message(category_name)
         self.stack.setCurrentWidget(self.custom_facture_window)
 
 def run_app():
     app = QApplication(sys.argv)
+    app.setWindowIcon(QIcon("icon.ico"))
 
     # Apply global stylesheet for all message boxes
     app.setStyleSheet("""
-        QMessageBox { 
+        QMessageBox {
             background-color: #1e293b;
             color: #e5e7eb;
         }

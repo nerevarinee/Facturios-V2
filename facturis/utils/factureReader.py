@@ -5,8 +5,13 @@ def fileDataReader(filePath, path=None):
     # 1️⃣ Set tesseract path
     if path:
         pytesseract.pytesseract.tesseract_cmd = path
+        QMessagebox.information(
+            self,
+            "Tesseract Patch Set",
+            f"Tesseract binary path set to: {path}"
+        )
     else:
-        pytesseract.pytesseract.tesseract_cmd = r"facturis\ocr\tesseract.exe"
+        pytesseract.pytesseract.tesseract_cmd = r"ocr\tesseract.exe"
 
     # 2️⃣ Open the image
     img = Image.open(filePath)
