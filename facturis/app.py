@@ -90,30 +90,33 @@ class MainApp(QMainWindow):
 
 
 
-    def go_to_browse_factures(self, msg: str):
-        if msg == "FACTURE_PRECISEE":
-            self.stack.setCurrentWidget(self.category_list)
-            # Disconnect previous signal and reconnect for browse
-            try:
-                self.category_list.category_selected.disconnect()  
-            except:
-                pass
-            self.category_list.category_selected.connect(self.go_to_browse_with_category)
+    def go_to_facture(self, msg: str):  
+        if msg == "FACTURE_PRECISEE":  
+            self.stack.setCurrentWidget(self.category_list)  
+        else:  
+            self.facture.receive_message(msg)  
+            self.stack.setCurrentWidget(self.facture)  
+
+    def go_to_browse_factures(self, msg: str):  
+        if msg == "FACTURE_PRECISEE":  
+            self.stack.setCurrentWidget(self.category_list)  
+        # Disconnect previous signal and reconnect for browse  
+            try:  
+                self.category_list.category_selected.disconnect()    
+            except:  
+                pass 
+            self.category_list.category_selected.connect(self.go_to_browse_with_category)  
         else:
-            self.browse_factures.receive_message(msg)
-            self.stack.setCurrentWidget(self.browse_factures)
+            self.browse_factures.receive_message(msg)  
+            self.stack.setCurrentWidget(self.browse_factures)  
 
-    def go_to_browse_with_category(self, category_name: str):
-        self.browse_factures.receive_message(category_name)
-        self.stack.setCurrentWidget(self.browse_factures)
-
-    def go_to_custom_facture_with_category(self, category_name: str):
-        self.custom_facture_window.receive_message(category_name)
+    def go_to_browse_with_category(self, category_name: str):  
+        self.browse_factures.receive_message(category_name)  
+        self.stack.setCurrentWidget(self.browse_factures)  
+  
+    def go_to_custom_facture_with_category(self, category_name: str):  
+        self.custom_facture_window.receive_message(category_name)  
         self.stack.setCurrentWidget(self.custom_facture_window)
-
-    def go_to_browse_factures(self, msg: str):
-        self.browse_factures.receive_message(msg)
-        self.stack.setCurrentWidget(self.browse_factures)
 
 def run_app():
     app = QApplication(sys.argv)

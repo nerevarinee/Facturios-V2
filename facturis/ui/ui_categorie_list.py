@@ -26,7 +26,7 @@ class Ui_Form(object):
         Form.setStyleSheet(u"background-color:rgb(0, 85, 255)")
         self.horizontalLayout = QHBoxLayout(Form)
         self.horizontalLayout.setObjectName(u"horizontalLayout")
-        self.horizontalSpacer_3 = QSpacerItem(261, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+        self.horizontalSpacer_3 = QSpacerItem(262, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
 
         self.horizontalLayout.addItem(self.horizontalSpacer_3)
 
@@ -69,6 +69,9 @@ class Ui_Form(object):
 
         self.categories_layout.addWidget(self.label_2)
 
+
+        self.verticalLayout_2.addLayout(self.categories_layout)
+
         self.ajoute_categorie_button = QPushButton(Form)
         self.ajoute_categorie_button.setObjectName(u"ajoute_categorie_button")
         font2 = QFont()
@@ -78,10 +81,7 @@ class Ui_Form(object):
         self.ajoute_categorie_button.setFont(font2)
         self.ajoute_categorie_button.setStyleSheet(u"color:rgb(39, 39, 39); background-color:rgb(255, 155, 3);")
 
-        self.categories_layout.addWidget(self.ajoute_categorie_button)
-
-
-        self.verticalLayout_2.addLayout(self.categories_layout)
+        self.verticalLayout_2.addWidget(self.ajoute_categorie_button)
 
         self.verticalSpacer = QSpacerItem(17, 48, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
 
@@ -90,7 +90,7 @@ class Ui_Form(object):
 
         self.horizontalLayout.addLayout(self.verticalLayout_2)
 
-        self.horizontalSpacer_2 = QSpacerItem(260, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+        self.horizontalSpacer_2 = QSpacerItem(261, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
 
         self.horizontalLayout.addItem(self.horizontalSpacer_2)
 
